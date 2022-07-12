@@ -74,3 +74,35 @@ documento = pln('Estou aprendendo processamento de linguagem natural, curso em C
 for token in documento:
   if not pln.vocab[token.text].is_stop:
     print(token.text)
+
+documento = pln('reserve uma passagem saindo de Guarulhos e chegando em Curitiba')
+
+origem = documento[5]
+destino = documento[9]
+origem, destino
+
+list(origem.ancestors)
+
+list(destino.ancestors)
+
+documento[0].is_ancestor(documento[2])
+
+documento = pln('Reserva de uma mesa para o restaurante e de um táxi para o hotel')
+
+tarefas = documento[3], documento[10]
+locais = documento[6], documento[13]
+
+tarefas, locais
+
+for local in locais:
+  print('-----', local)
+  for objeto in local.ancestors:
+    print(objeto)
+
+for local in locais:
+  for objeto in local.ancestors:
+    if objeto in tarefas:
+      print("Reserva de {} é para o {}".format(objeto, local))
+      break
+
+list(documento[6].children)
