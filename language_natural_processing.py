@@ -35,3 +35,25 @@ stemmer.stem('aprender')
 
 for token in documento:
   print(token.text, token.lemma_, stemmer.stem(token.text))
+
+  texto = 'A IBM é uma empresa dos Estados Unidos voltada para a área de informática. Sua sede no Brasil fica em São Paulo e a receita em 2018 foi de aproximadamente 320 bilhões de reais'
+
+  documento = pln(texto)
+
+  for entidade in documento.ents:
+  print(entidade.text, entidade.label_)
+
+  from spacy import displacy
+displacy.render(documento, style = 'ent', jupyter = True)
+
+texto = 'Bill Gates nasceu em Seattle em 28/10/1955 e foi o criador da Microsoft'
+
+documento = pln(texto)
+for entidade in documento.ents:
+  print(entidade.text, entidade.label_)
+
+displacy.render(documento, style = 'ent', jupyter = True)
+
+for entidade in documento.ents:
+  if entidade.label_ == 'PER':
+    print(entidade.text)
