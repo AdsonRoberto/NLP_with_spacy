@@ -21,3 +21,17 @@ for token in documento:
 for token in documento:
   if token.pos_ == 'PUNCT':
     print(token.text)
+
+for token in documento:
+  print(token.text, token.lemma_)
+
+doc = pln('encontrei encontraram encontrarão encontrariam cursando curso cursei')
+[token.lemma_ for token in doc]
+
+!pip install nltk --upgrade
+
+stemmer = nltk.stem.RSLPStemmer()
+stemmer.stem('aprender')
+
+for token in documento:
+  print(token.text, token.lemma_, stemmer.stem(token.text))
