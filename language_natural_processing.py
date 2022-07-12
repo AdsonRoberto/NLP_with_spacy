@@ -57,3 +57,20 @@ displacy.render(documento, style = 'ent', jupyter = True)
 for entidade in documento.ents:
   if entidade.label_ == 'PER':
     print(entidade.text)
+
+
+from spacy.lang.pt.stop_words import STOP_WORDS
+
+print(STOP_WORDS)
+
+len(STOP_WORDS)
+
+pln.vocab['ir'].is_stop
+
+pln.vocab['caminhar'].is_stop
+
+documento = pln('Estou aprendendo processamento de linguagem natural, curso em Curitiba')
+
+for token in documento:
+  if not pln.vocab[token.text].is_stop:
+    print(token.text)
