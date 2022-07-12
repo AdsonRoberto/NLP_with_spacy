@@ -4,3 +4,6 @@ import spacy
 spacy.__version__
 
 !python -m spacy download pt
+
+pln = spacy.load('pt')
+pln
