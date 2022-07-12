@@ -106,3 +106,46 @@ for local in locais:
       break
 
 list(documento[6].children)
+
+documento = pln('Que locais podemos visitar em Curitiba e para ficar em Guarulhos?')
+lugares = documento[5], documento[10]
+acoes = documento[3], documento[8]
+lugares, acoes
+
+for local in lugares:
+  for acao in local.ancestors:
+    if acao in acoes:
+      print("{} para {}".format(local, acao))
+      break
+
+displacy.render(documento, style='dep', jupyter=True, options={'distance': 90})
+
+p1 = pln("olá")
+p2 = pln("oi")
+p3 = pln("ou")
+
+p1.similarity(p2)
+
+p2.similarity(p1)
+
+p1.similarity(p3)
+
+p2.similarity(p3)
+
+texto1 = pln('Quando será lançado o novo filme?')
+texto2 = pln('O novo filme será lançado mês que vem')
+texto3 = pln('Qual a cor do carro?')
+
+texto1.similarity(texto2)
+
+texto1.similarity(texto3)
+
+texto = pln('gato cachorro cavalo pessoa')
+
+for texto1 in texto:
+  #print('----', texto1)
+  for texto2 in texto:
+    #print(texto2)
+    similaridade = int(texto1.similarity(texto2) * 100)
+    print("{} é {} similar a {}".format(texto1, similaridade, texto2))
+
