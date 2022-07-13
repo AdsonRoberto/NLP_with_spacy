@@ -149,3 +149,11 @@ for texto1 in texto:
     similaridade = int(texto1.similarity(texto2) * 100)
     print("{} é {} similar a {}".format(texto1, similaridade, texto2))
 
+documento = pln('Estou aprendendo processamento de linguagem natural, curso em Curitiba')
+
+for token in documento:
+  print(token)
+
+documento1 = 'Estou aprendendo processamento de linguagem natural, curso em Curitiba'
+documento1.split(' ')
+
